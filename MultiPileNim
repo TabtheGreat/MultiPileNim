@@ -1,0 +1,112 @@
+using System;
+
+namespace MultiPileNIM_CSharp
+{
+	internal class MultiPileNIM
+	{
+    	public static void Main(string[] args)
+    	{
+        	// Init variables
+        	Random ran = new Random();
+        	int currentNum1 = ran.Next(1, 10);
+          int currentNum2 = ran.Next(1, 10);
+          int currentNum3 = ran.Next(1, 10);
+        	int takeAmount = 0;
+        	int maxTake;
+
+        	int whoseTurn = 1;
+        	bool gameIsOver;
+        	bool gameLoop = true;
+        	bool validInput;
+
+
+        	// Main Game Loop
+        	if (gameLoop == true)
+        	{
+            	// Setup
+            	maxTake = Math.Min(3, currentNum);
+            	gameIsOver = false;
+
+            	Console.WriteLine("Single Pile NIM\n---------------\n");
+
+            	//Session Loop
+            	while (!gameIsOver)
+            	{
+                	// Player's Turn
+                	validInput = false;
+                	whoseTurn = 1;
+
+                	if (!validInput)
+                	{
+                    	//Get an integer
+                    	while (true)
+                    	{
+                        	Console.WriteLine("Remaining total is: {0}", currentNum);
+                        	Console.WriteLine("How much will you take (1-{0})?", maxTake);
+
+                        	bool success = int.TryParse(Console.ReadLine(), out takeAmount);
+
+                        	if (success)
+                            	break;
+                        	else
+                            	Console.WriteLine("Invalid amount!\n");
+                    	}
+
+                    	// Check to see if input is within the valid range
+                    	if (takeAmount > 0 && takeAmount <= maxTake)
+                        	validInput = true;
+
+                    	else
+                        	Console.WriteLine("Invalid amount!\n");
+                	}
+
+                	Console.WriteLine("You took {0}.\n", takeAmount);
+                	currentNum -= takeAmount;
+
+                	if (currentNum <= 0)
+                    	gameIsOver = true;
+
+                	else
+                	{
+                    	//Computer's turn
+                    	whoseTurn = 2;
+                    	if (currentNum > 1)
+                    	{
+                        	int pizza = currentNum + 3;
+                        	if (pizza % 4 == 0)
+                        	{
+                            	takeAmount = 3;
+                        	}
+                        	else
+                        	{
+                            	takeAmount = Math.Min(pizza % 4, currentNum - 1);
+                            	Console.WriteLine("I will take {0}.\n", takeAmount);
+                        	}
+                    	}
+                    	else
+                    	{
+                        	takeAmount = 1;
+                        	Console.WriteLine("I will take {0}.\n", takeAmount);
+                    	}
+                    	currentNum -= takeAmount;
+
+                    	if (currentNum <= 0)
+                        	gameIsOver = true;
+                	}
+            	}
+
+            	// Determine the winner
+            	if (whoseTurn == 1)
+                	Console.WriteLine("I win, You lose.");
+
+            	else
+                	Console.WriteLine("You win, I lose.");
+
+        	}
+        	else
+        	{
+            	Console.WriteLine("\nGoodbye!");
+        	}
+    	}
+	}
+}
