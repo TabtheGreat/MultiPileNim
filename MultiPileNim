@@ -1,5 +1,4 @@
 using System;
-// https://jdh.hamkins.org/win-at-nim-the-secret-mathematical-strategy/ use this link for the strategy then finish the code
 namespace MultiPileNIM_CSharp
 {
 	internal class MultiPileNIM
@@ -8,15 +7,21 @@ namespace MultiPileNIM_CSharp
     	{
         	// Init variables
         	Random ran = new Random();
-            int currentNum1 = ran.Next(1, 10);
-            int currentNum2 = ran.Next(1, 10);
-            int currentNum3 = ran.Next(1, 10);
+		int currentNum1 = ran.Next(1, 10);
+		int currentNum2 = ran.Next(1, 10);
+		int currentNum3 = ran.Next(1, 10;
+
+		int pile12 = currentNum1 + currentNum2;
+		int pile23 = currentNum2 + currentNum3;
+		int pile31 = currentNum3 + currentNum1;
+
         	int takeAmount1 = 0;
-			int takeAmount2 = 0;
-			int takeAmount3 = 0;
+		int takeAmount2 = 0;
+		int takeAmount3 = 0;
+
         	int maxTake1;
-			int maxTake1;
-			int maxTake1;
+		int maxTake2;
+		int maxTake3;
 
         	int whoseTurn = 1;
         	bool gameIsOver;
@@ -29,8 +34,8 @@ namespace MultiPileNIM_CSharp
         	{
             	// Setup
             	maxTake1 = Math.Min(3, currentNum1);
-				maxTake2 = Math.Min(3, currentNum2);
-				maxTake3 = Math.Min(3, currentNum3);
+		maxTake2 = Math.Min(3, currentNum2);
+		maxTake3 = Math.Min(3, currentNum3);
             	gameIsOver = false;
 
             	Console.WriteLine("Multiple Pile NIM\n---------------\n");
@@ -47,10 +52,18 @@ namespace MultiPileNIM_CSharp
                     	//Get an integer
                     	while (true)
                     	{
-                        	Console.WriteLine("Remaining total is: {0}", currentNum1);
-                        	Console.WriteLine("How much will you take (1-{0})?", maxTake1);
+                        	Console.WriteLine("Remaining total from the first pile is: {0}", currentNum1);
+                        	Console.WriteLine("Remaining total from the second pile is: {0}", currentNum2);
+                        	Console.WriteLine("Remaining total from the third pile is: {0}", currentNum3);
 
-                        	bool success = int.TryParse(Console.ReadLine(), out takeAmount);
+
+                        	Console.WriteLine("How much will you take from the first pile(1-{0})?", maxTake1);
+				Console.WriteLine("How much will you take from the second pile(1-{0})?", maxTake2);
+				Console.WriteLine("How much will you take from the third pile(1-{0})?", maxTake3);
+
+                        	bool success = int.TryParse(Console.ReadLine(), out takeAmount1);
+				bool success = int.TryParse(Console.ReadLine(), out takeAmount2);
+				bool success = int.TryParse(Console.ReadLine(), out takeAmount3);
 
                         	if (success)
                             	break;
