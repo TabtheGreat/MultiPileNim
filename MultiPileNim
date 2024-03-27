@@ -126,18 +126,40 @@ namespace MultiPileNIM_CSharp
                 	{
                     	//Computer's turn
                     	whoseTurn = 2;
-                    	if (currentNum > 1)
+                    	if (pile12 > pile23 && pile12 > pile31)
                     	{
-                        	int pizza = currentNum + 3;
-                        	if (pizza % 4 == 0)
-                        	{
-                            	takeAmount = 3;
-                        	}
-                        	else
-                        	{
-                            	takeAmount = Math.Min(pizza % 4, currentNum - 1);
-                            	Console.WriteLine("I will take {0}.\n", takeAmount);
-                        	}
+				if (currentNum1 > currentNum2)
+				{
+                            	takeAmount = currentNum1 + currentNum2 - currentNum3;
+                            	Console.WriteLine("I will take from the first pile {0}.\n", takeAmount1);
+				}
+				else if (currentNum2 > currentNum1)
+				{
+                            	takeAmount = currentNum1 + currentNum2 - currentNum3;
+                            	Console.WriteLine("I will take from the second pile {0}.\n", takeAmount2);
+				}
+				else
+				{
+
+				}
+
+                    	}
+			else if (pile12 < pile23 && pile23 > pile31)
+                    	{
+				if (currentNum2 > currentNum3)
+				{
+                            	takeAmount2 = currentNum1 + currentNum2 - currentNum3;
+                            	Console.WriteLine("I will take from the second pile {0}.\n", takeAmount2);
+				}
+				if (currentNum3 > currentNum2)
+				{
+                            	takeAmount3 = currentNum1 + currentNum2 - currentNum3;
+                            	Console.WriteLine("I will take from the third pile {0}.\n", takeAmount3);
+				}
+				else
+				{
+
+				}
                     	}
                     	else
                     	{
