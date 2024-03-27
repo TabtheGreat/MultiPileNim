@@ -38,7 +38,7 @@ namespace MultiPileNIM_CSharp
 		maxTake3 = Math.Min(3, currentNum3);
             	gameIsOver = false;
 
-            	Console.WriteLine("Multiple Pile NIM\n---------------\n");
+            	Console.WriteLine("Multiple Pile Nim");
 
             	//Session Loop
             	while (!gameIsOver)
@@ -61,28 +61,65 @@ namespace MultiPileNIM_CSharp
 				Console.WriteLine("How much will you take from the second pile(1-{0})?", maxTake2);
 				Console.WriteLine("How much will you take from the third pile(1-{0})?", maxTake3);
 
-                        	bool success = int.TryParse(Console.ReadLine(), out takeAmount1);
-				bool success = int.TryParse(Console.ReadLine(), out takeAmount2);
-				bool success = int.TryParse(Console.ReadLine(), out takeAmount3);
+                        	bool success1 = int.TryParse(Console.ReadLine(), out takeAmount1);
+				bool success2 = int.TryParse(Console.ReadLine(), out takeAmount2);
+				bool success3 = int.TryParse(Console.ReadLine(), out takeAmount3);
 
-                        	if (success)
+                        	if (success1) 
+				{
                             	break;
-                        	else
-                            	Console.WriteLine("Invalid amount!\n");
+				}
+
+				else if (success2)
+				{
+                            	break;
+				}
+
+				else if (success3)
+				{
+                            	break;
+				}
+
+                        	else 
+				{
+                            	Console.WriteLine("Invalid amount!");
+				}
                     	}
 
                     	// Check to see if input is within the valid range
-                    	if (takeAmount > 0 && takeAmount <= maxTake)
+                    	if (takeAmount1 > 0 && takeAmount1 <= maxTake) 
+			{
                         	validInput = true;
+			}
 
                     	else
                         	Console.WriteLine("Invalid amount!\n");
                 	}
 
-                	Console.WriteLine("You took {0}.\n", takeAmount);
-                	currentNum -= takeAmount;
+                    	if (takeAmount2 > 0 && takeAmount2 <= maxTake) 
+			{
+                        	validInput = true;
+			}
 
-                	if (currentNum <= 0)
+                    	else
+                        	Console.WriteLine("Invalid amount!\n");
+                	}
+
+                    	if (takeAmount3 > 0 && takeAmount3 <= maxTake) 
+			{
+                        	validInput = true;
+			}
+
+                    	else
+                        	Console.WriteLine("Invalid amount!\n");
+                	}
+
+                	Console.WriteLine("You took {0}.\n", takeAmount1);
+                	currentNum1 -= takeAmount1;
+                	currentNum2 -= takeAmount2;
+                	currentNum3 -= takeAmount3;
+
+                	if (currentNum1 <= 0 && currentNum2 <= 0 && currentNum3 <= 0)
                     	gameIsOver = true;
 
                 	else
