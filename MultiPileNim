@@ -17,7 +17,7 @@ namespace MultiPileNIM_CSharp
 		int takeAmount2 = 0;
 		int takeAmount3 = 0;
 
-        	int maxTake1;
+        int maxTake1;
 		int maxTake2;
 		int maxTake3;
 
@@ -85,7 +85,7 @@ namespace MultiPileNIM_CSharp
                     	}
 
                     	// Check to see if input is within the valid range
-                    	if (takeAmount1 > 0 && takeAmount1 <= maxTake) 
+                    	if (takeAmount1 > 0 && takeAmount1 <= maxTake1) 
 			{
                         	validInput = true;
 			}
@@ -94,7 +94,7 @@ namespace MultiPileNIM_CSharp
                         	Console.WriteLine("Invalid amount!\n");
                 	}
 
-                    	if (takeAmount2 > 0 && takeAmount2 <= maxTake) 
+                    	if (takeAmount2 > 0 && takeAmount2 <= maxTake2) 
 			{
                         	validInput = true;
 			}
@@ -104,7 +104,7 @@ namespace MultiPileNIM_CSharp
                         	Console.WriteLine("Invalid amount!\n");
                 	    }
 
-                    	if (takeAmount3 > 0 && takeAmount3 <= maxTake) 
+                    	if (takeAmount3 > 0 && takeAmount3 <= maxTake3) 
 			            {
                         	validInput = true;
 			            }
@@ -187,8 +187,11 @@ namespace MultiPileNIM_CSharp
 						}
                 	}
             	}
-
-            	// Determine the winner
+        	else
+        	{
+            	Console.WriteLine("\nGoodbye!");
+        	}
+        	            	// Determine the winner
             	if (whoseTurn == 1)
             	{
                 	Console.WriteLine("I win, You lose.");
@@ -198,12 +201,6 @@ namespace MultiPileNIM_CSharp
             	{
                 	Console.WriteLine("You win, I lose.");
             	}
-
-        	}
-        	else
-        	{
-            	Console.WriteLine("\nGoodbye!");
-        	}
     	}
 	}
 }
