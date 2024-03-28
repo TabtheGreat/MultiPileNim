@@ -100,16 +100,19 @@ namespace MultiPileNIM_CSharp
 			}
 
                     	else
+                    	{
                         	Console.WriteLine("Invalid amount!\n");
-                	}
+                	    }
 
                     	if (takeAmount3 > 0 && takeAmount3 <= maxTake) 
-			{
+			            {
                         	validInput = true;
-			}
+			            }
 
                     	else
+                    	{
                         	Console.WriteLine("Invalid amount!\n");
+                    	}
                 	}
 
                 	Console.WriteLine("You took {0}.\n", takeAmount1);
@@ -139,7 +142,7 @@ namespace MultiPileNIM_CSharp
 				else
 				{
 					takeAmount1 = 1;
-					Console.WriteLine("I will take from the first pile {0}.\n", takeAmount1)
+					Console.WriteLine("I will take from the first pile {0}.\n", takeAmount1);
 				}
 
                     	}
@@ -187,10 +190,14 @@ namespace MultiPileNIM_CSharp
 
             	// Determine the winner
             	if (whoseTurn == 1)
+            	{
                 	Console.WriteLine("I win, You lose.");
+            	}
 
             	else
+            	{
                 	Console.WriteLine("You win, I lose.");
+            	}
 
         	}
         	else
