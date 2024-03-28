@@ -21,10 +21,10 @@ namespace MultiPileNIM_CSharp
 		int maxTake2;
 		int maxTake3;
 
-        	int whoseTurn = 1;
-        	bool gameIsOver;
-        	bool gameLoop = true;
-        	bool validInput;
+        int whoseTurn = 1;
+        bool gameIsOver;
+        bool gameLoop = true;
+        bool validInput;
 
 
         	// Main Game Loop
@@ -32,8 +32,8 @@ namespace MultiPileNIM_CSharp
         	{
             	// Setup
             	maxTake1 = Math.Min(5, currentNum1);
-		maxTake2 = Math.Min(3, currentNum2);
-		maxTake3 = Math.Min(3, currentNum3);
+		        maxTake2 = Math.Min(3, currentNum2);
+		        maxTake3 = Math.Min(3, currentNum3);
             	gameIsOver = false;
 
             	Console.WriteLine("Multiple Pile Nim");
@@ -50,16 +50,16 @@ namespace MultiPileNIM_CSharp
                     	//Get an integer
                     	while (true)
                     	{
-                        	Console.WriteLine("Remaining total from the first pile is: {0}", currentNum1);
-                        	Console.WriteLine("Remaining total from the second pile is: {0}", currentNum2);
-                        	Console.WriteLine("Remaining total from the third pile is: {0}", currentNum3);
+                Console.WriteLine("Remaining total from the first pile is: {0}", currentNum1);
+                Console.WriteLine("Remaining total from the second pile is: {0}", currentNum2);
+                Console.WriteLine("Remaining total from the third pile is: {0}", currentNum3);
 
 
-                        	Console.WriteLine("How much will you take from the first pile(1-{0})?", maxTake1);
+                Console.WriteLine("How much will you take from the first pile(1-{0})?", maxTake1);
 				Console.WriteLine("How much will you take from the second pile(1-{0})?", maxTake2);
 				Console.WriteLine("How much will you take from the third pile(1-{0})?", maxTake3);
 
-                        	bool success1 = int.TryParse(Console.ReadLine(), out takeAmount1);
+                bool success1 = int.TryParse(Console.ReadLine(), out takeAmount1);
 				bool success2 = int.TryParse(Console.ReadLine(), out takeAmount2);
 				bool success3 = int.TryParse(Console.ReadLine(), out takeAmount3);
 
