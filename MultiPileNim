@@ -31,7 +31,7 @@ namespace MultiPileNIM_CSharp
         	if (gameLoop == true)
         	{
             	// Setup
-            	maxTake1 = Math.Min(5, currentNum1);
+            		maxTake1 = Math.Min(5, currentNum1);
 		        maxTake2 = Math.Min(5, currentNum2);
 		        maxTake3 = Math.Min(5, currentNum3);
             	gameIsOver = false;
@@ -55,11 +55,11 @@ namespace MultiPileNIM_CSharp
                 Console.WriteLine("Remaining total from the third pile is: {0}", currentNum3);
 
 
-                Console.WriteLine("How much will you take from the first pile(1-{0})?", maxTake1);
+                	Console.WriteLine("How much will you take from the first pile(1-{0})?", maxTake1);
 				Console.WriteLine("How much will you take from the second pile(1-{0})?", maxTake2);
 				Console.WriteLine("How much will you take from the third pile(1-{0})?", maxTake3);
 
-                bool success1 = int.TryParse(Console.ReadLine(), out takeAmount1);
+                	bool success1 = int.TryParse(Console.ReadLine(), out takeAmount1);
 				bool success2 = int.TryParse(Console.ReadLine(), out takeAmount2);
 				bool success3 = int.TryParse(Console.ReadLine(), out takeAmount3);
 
