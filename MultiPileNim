@@ -47,13 +47,13 @@ namespace MultiPileNIM_CSharp
             	//Session Loop
             	while (!gameIsOver)
             	{
-                	// Player's Turn
-                	validInput = false;
-                	whoseTurn = 1;
+                // Player's Turn
+                validInput = false;
+                whoseTurn = 1;
 
                 	if (!validInput)
                 	{
-                    	//Get an integer
+                    //Get an integer
                     	while (true)
                     	{
 				Console.WriteLine("Remaining total from the first pile is: {0}", currentNum1);
@@ -137,7 +137,8 @@ namespace MultiPileNIM_CSharp
 				{
 				Console.WriteLine("invalid pile");
 				}
-    	}
+						}
+    				}
                 Console.WriteLine("You took from pile 1 {0}.\n", takeAmount1);
                 Console.WriteLine("You took from pile 2 {0}.\n", takeAmount2);
                 Console.WriteLine("You took from pile 3 {0}.\n", takeAmount3);
@@ -152,64 +153,67 @@ namespace MultiPileNIM_CSharp
                 {
                 //Computer's turn
                 whoseTurn = 2;
-                if (pile12 > currentNum3)
-                {
-					if (currentNum1 > currentNum2)
-					{
-                        takeAmount1 = currentNum1 + currentNum2 - currentNum3;
-                        Console.WriteLine("I will take from the first pile {0}.\n", takeAmount1);
-					}
-					else if (currentNum2 > currentNum1)
-					{
-                   		takeAmount2 = currentNum1 + currentNum2 - currentNum3;
-                   		Console.WriteLine("I will take from the second pile {0}.\n", takeAmount2);
-					}
-				else
-				{
-					takeAmount1 = 1;
-					Console.WriteLine("I will take from the first pile {0}.\n", takeAmount1);
-				}
+                	if (pile12 > currentNum3)
+                	{
+						if (currentNum1 > currentNum2)
+						{
+                       		takeAmount1 = currentNum1 + currentNum2 - currentNum3;
+                        	Console.WriteLine("I will take from the first pile {0}.\n", takeAmount1);
+						}
+						else if (currentNum2 > currentNum1)
+						{
+                   			takeAmount2 = currentNum1 + currentNum2 - currentNum3;
+                   			Console.WriteLine("I will take from the second pile {0}.\n", takeAmount2);
+						}
+						else
+						{
+							takeAmount1 = 1;
+							Console.WriteLine("I will take from the first pile {0}.\n", takeAmount1);
+						}
 
-                }
-				else if (pile12 < currentNum3)
-                {
+                	}
+					else if (pile12 < currentNum3)
+                	{
 
-					if (currentNum3 > currentNum2)
-					{
-                        takeAmount3 = currentNum3 - currentNum2 - currentNum1;
-                        Console.WriteLine("I will take from the third pile {0}.\n", takeAmount3);
-					}
-					else
-					{
+						if (currentNum3 > currentNum2)
+						{
+                        	takeAmount3 = currentNum3 - currentNum2 - currentNum1;
+                        	Console.WriteLine("I will take from the third pile {0}.\n", takeAmount3);
+						}
+						else
+						{
 
-					}
-                }
-                else
-                {
-					if (currentNum1 != 0 && currentNum1 >= currentNum2 && currentNum1 >= currentNum3)
-					{
-                        takeAmount1 = 1;
-                        Console.WriteLine("I will take {0}.\n", takeAmount1);
-					}
-					else if (currentNum2 != 0 && currentNum2 >= currentNum1 && currentNum2 >= currentNum3)
-					{
-                        takeAmount2 = 1;
-                        Console.WriteLine("I will take {0}.\n", takeAmount2);
-					}
-					else
-					{
-                        takeAmount3 = 3;
-                        Console.WriteLine("I will take {0}.\n", takeAmount3);
-					}
-                }
+						}
+                	}
+                	else
+                	{
+						if (currentNum1 != 0 && currentNum1 >= currentNum2 && currentNum1 >= currentNum3)
+						{
+                        	takeAmount1 = 1;
+                        	Console.WriteLine("I will take {0}.\n", takeAmount1);
+						}
+						else if (currentNum2 != 0 && currentNum2 >= currentNum1 && currentNum2 >= currentNum3)
+						{
+                        	takeAmount2 = 1;
+                        	Console.WriteLine("I will take {0}.\n", takeAmount2);
+						}
+						else
+						{
+                     		takeAmount3 = 3;
+                        	Console.WriteLine("I will take {0}.\n", takeAmount3);
+						}
+                	}
                 currentNum1 -= takeAmount1;
 				currentNum2 -= takeAmount2;
 				currentNum3 -= takeAmount3;
 
-                if (currentNum1 == 0 && currentNum2 == 0 && currentNum3 == 0)
-				{
-                    gameIsOver = true;
-				}
+                	if (currentNum1 == 0 && currentNum2 == 0 && currentNum3 == 0)
+					{
+                    	gameIsOver = true;
+					}
                 }
+				}
+			}
+		}
 	}
 }
