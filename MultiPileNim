@@ -113,7 +113,7 @@ namespace MultiPileNIM_CSharp
 				{
 					Console.WriteLine("Your are taking from pile three, how many tokens do you take (1 - {0})?", maxTake3);
 					System.Threading.Thread.Sleep(5000);
-					bool success2 = int.TryParse(Console.ReadLine(), out takeAmount2);
+					bool success3 = int.TryParse(Console.ReadLine(), out takeAmount2);
 					if (success3)
 					{
 						break;
