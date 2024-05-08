@@ -7,6 +7,7 @@ namespace MultiPileNIM_CSharp
     	{
         	// Init variables
         	Random ran = new Random();
+			int pilenumber = 0;
 		int currentNum1 = ran.Next(1, 10);
 		int currentNum2 = ran.Next(1, 10);
 		int currentNum3 = ran.Next(1, 10);
@@ -55,83 +56,99 @@ namespace MultiPileNIM_CSharp
                     	//Get an integer
                     	while (true)
                     	{
-				Console.WriteLine("Which pile do you want to take from? 1-3");
-                Console.WriteLine("Remaining total from the first pile is: {0}", currentNum1);
+				Console.WriteLine("Remaining total from the first pile is: {0}", currentNum1);
                 Console.WriteLine("Remaining total from the second pile is: {0}", currentNum2);
                 Console.WriteLine("Remaining total from the third pile is: {0}", currentNum3);
-
-
-                Console.WriteLine("How much will you take from the first pile(1-{0})?", maxTake1);
-				Console.WriteLine("How much will you take from the second pile(1-{0})?", maxTake2);
-				Console.WriteLine("How much will you take from the third pile(1-{0})?", maxTake3);
-
-                bool success1 = int.TryParse(Console.ReadLine(), out takeAmount1);
-				bool success2 = int.TryParse(Console.ReadLine(), out takeAmount2);
-				bool success3 = int.TryParse(Console.ReadLine(), out takeAmount3);
-
-                        	if (success1) 
+				Console.WriteLine("Which pile do you want to take from? 1-3");
+				int.TryParse(Console.ReadLine(), out pilenumber);
+				if (pilenumber == 1)
 				{
-                            	break;
-				}
+					Console.WriteLine("Your are taking from pile one, how many tokens do you take (1 - {0})?", maxTake1);
+					System.Threading.Thread.Sleep(5000);
+					bool success1 = int.TryParse(Console.ReadLine(), out takeAmount1);
+					if (success1)
+					{
+						break;
+					}
+					else
+					{
+						Console.WriteLine("Invalid amount!");
+					}
+					if (takeAmount1 > 0 && takeAmount1 <= maxTake1) 
+					{
+                    validInput = true;
+					}
 
-				else if (success2)
-				{
-                            	break;
-				}
-
-				else if (success3)
-				{
-                            	break;
-				}
-
-                        	else 
-				{
-                            	Console.WriteLine("Invalid amount!");
-				}
-                    	}
-
-                    	// Check to see if input is within the valid range
-                    	if (takeAmount1 > 0 && takeAmount1 <= maxTake1) 
-			{
-                        	validInput = true;
-			}
-
-                    	else
-                        	Console.WriteLine("Invalid amount!\n");
+                    else
+					{
+                    Console.WriteLine("Invalid amount!\n");
+					validInput = false;
                 	}
+				}
+				else if (pilenumber == 2)
+				{
+					Console.WriteLine("Your are taking from pile two, how many tokens do you take (1 - {0})?", maxTake2);
+					System.Threading.Thread.Sleep(5000);
+					bool success2 = int.TryParse(Console.ReadLine(), out takeAmount2);
+					if (success2)
+					{
+						break;
+					}
+					else
+					{
+						Console.WriteLine("Invalid amount!");
+					}
+					if (takeAmount2 > 0 && takeAmount2 <= maxTake2) 
+					{
+                    validInput = true;
+					}
 
-                    	if (takeAmount2 > 0 && takeAmount2 <= maxTake2) 
-			{
-                        	validInput = true;
-			}
-
-                    	else
-                    	{
-                        	Console.WriteLine("Invalid amount!\n");
-                	    }
-
-                    	if (takeAmount3 > 0 && takeAmount3 <= maxTake3) 
-			            {
-                        	validInput = true;
-			            }
-
-                    	else
-                    	{
-                        	Console.WriteLine("Invalid amount!\n");
-                    	}
+                    else
+					{
+                    Console.WriteLine("Invalid amount!\n");
+					validInput = false;
                 	}
+				}
+				else if (pilenumber == 3)
+				{
+					Console.WriteLine("Your are taking from pile three, how many tokens do you take (1 - {0})?", maxTake3);
+					System.Threading.Thread.Sleep(5000);
+					bool success2 = int.TryParse(Console.ReadLine(), out takeAmount2);
+					if (success3)
+					{
+						break;
+					}
+					else
+					{
+						Console.WriteLine("Invalid amount!");
+					}
+					if (takeAmount3 > 0 && takeAmount3 <= maxTake3) 
+					{
+                    validInput = true;
+					}
 
+                    else
+					{
+                    Console.WriteLine("Invalid amount!\n");
+					validInput = false;
+                	}
+				}
+				else
+				{
+				Console.WriteLine("invalid pile");
+				}
+    	}
                 	Console.WriteLine("You took from pile 1 {0}.\n", takeAmount1);
                 	Console.WriteLine("You took from pile 2 {0}.\n", takeAmount2);
                 	Console.WriteLine("You took from pile 3 {0}.\n", takeAmount3);
                 	currentNum1 -= takeAmount1;
                 	currentNum2 -= takeAmount2;
                 	currentNum3 -= takeAmount3;
-
-                	if (currentNum1 <= 0 && currentNum2 <= 0 && currentNum3 <= 0)
+					if (currentNum1 <= 0 && currentNum2 <= 0 && currentNum3 <= 0)
+					{
                     	gameIsOver = true;
-
-                	else
+					}
+					                	else
                 	{
                     	//Computer's turn
                     	whoseTurn = 2;
@@ -194,21 +211,5 @@ namespace MultiPileNIM_CSharp
                         	gameIsOver = true;
 						}
                 	}
-            	}
-        	else
-        	{
-            	Console.WriteLine("\nGoodbye!");
-        	}
-        	            	// Determine the winner
-            	if (whoseTurn == 1)
-            	{
-                	Console.WriteLine("I win, You lose.");
-            	}
-
-            	else
-            	{
-                	Console.WriteLine("You win, I lose.");
-            	}
-    	}
 	}
 }
