@@ -166,9 +166,9 @@ namespace MultiPileNIM_CSharp
 				}
 						}
     				}
-                Console.WriteLine("You took from pile 1 {0}.\n", takeAmount1);
-                Console.WriteLine("You took from pile 2 {0}.\n", takeAmount2);
-                Console.WriteLine("You took from pile 3 {0}.\n", takeAmount3);
+                Console.WriteLine("You took from pile 1: {0}.\n", takeAmount1);
+                Console.WriteLine("You took from pile 2: {0}.\n", takeAmount2);
+                Console.WriteLine("You took from pile 3: {0}.\n", takeAmount3);
                 currentNum1 -= takeAmount1;
                 currentNum2 -= takeAmount2;
                 currentNum3 -= takeAmount3;
@@ -191,7 +191,7 @@ namespace MultiPileNIM_CSharp
 							}
 							takeAmount2 = 0;
 							takeAmount3 = 0;
-                        	Console.WriteLine("I will take from the first pile {0}.\n", takeAmount1);
+                        	Console.WriteLine("I will take from the first pile: {0}.\n", takeAmount1);
 						}
 						else if (currentNum2 > currentNum1)
 						{
@@ -202,14 +202,14 @@ namespace MultiPileNIM_CSharp
 								takeAmount2 = 0;
 							}
 							takeAmount3 = 0;
-                   			Console.WriteLine("I will take from the second pile {0}.\n", takeAmount2);
+                   			Console.WriteLine("I will take from the second pile: {0}.\n", takeAmount2);
 						}
 						else
 						{
 							takeAmount1 = 1;
 							takeAmount2 = 0;
 							takeAmount3 = 0;
-							Console.WriteLine("I will take from the first pile {0}.\n", takeAmount1);
+							Console.WriteLine("I will take from the first pile: {0}.\n", takeAmount1);
 						}
 
                 	}
@@ -225,7 +225,7 @@ namespace MultiPileNIM_CSharp
 								{
 								takeAmount3 = 5;
 								}
-                        				Console.WriteLine("I will take from the third pile {0}.\n", takeAmount3);
+                        				Console.WriteLine("I will take from the third pile: {0}.\n", takeAmount3);
 						}
 						else
 						{
@@ -239,20 +239,20 @@ namespace MultiPileNIM_CSharp
                         				takeAmount1 = 1;
 							takeAmount2 = 0;
 							takeAmount3 = 0;
-                        	Console.WriteLine("I will take {0}.\n", takeAmount1);
+                        	Console.WriteLine("I will take from the first pile: {0}.\n", takeAmount1);
 						}
 						else if (currentNum2 != 0 && currentNum2 >= currentNum1 && currentNum2 >= currentNum3)
 						{
 							takeAmount1 = 0;
-                        				takeAmount2 = 1;
-							takeAmount3 = 0;
-                        	Console.WriteLine("I will take {0}.\n", takeAmount2);
+                        				takeAmount2 = 0;
+							takeAmount3 = 1;
+                        	Console.WriteLine("I will take from the second pile: {0}.\n", takeAmount2);
 						}
 						else
 						{
 							takeAmount1 = 0;
-							takeAmount2 = 0;
-                     					takeAmount3 = 1;
+							takeAmount2 = 1;
+                     					takeAmount3 = 0;
                         	Console.WriteLine("I will take {0}.\n", takeAmount3);
 						}
                 			}
