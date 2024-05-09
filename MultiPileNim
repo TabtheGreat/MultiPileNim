@@ -8,9 +8,9 @@ namespace MultiPileNIM_CSharp
         // Init variables
         Random ran = new Random();
 		int pilenumber = 0;
-		int currentNum1 = ran.Next(10, 100);
-		int currentNum2 = currentNum1 - ran.Next(0, currentNum1/5);
-		int currentNum3 = currentNum1 + ran.Next(0, currentNum1/5);
+		int currentNum1 = ran.Next(10, 20);
+		int currentNum2 = ran.Next(10, 20);
+		int currentNum3 = ran.Next(10, 20);
 
 		int pile1 = currentNum1;
 		int pile2 = currentNum2;
@@ -214,29 +214,29 @@ namespace MultiPileNIM_CSharp
 
                 	}
 					else if (pile12 < currentNum3)
-                	{
+                			{
 
 						if (currentNum3 > currentNum2)
 						{
 							takeAmount1 = 0;
 							takeAmount2 = 0;
-                        	takeAmount3 = Math.Max(1, currentNum3 - currentNum2 - currentNum1) % 6;
-							if (takeAmount3 == 0)
-							{
-							takeAmount3 = 5;
-							}
-                        	Console.WriteLine("I will take from the third pile {0}.\n", takeAmount3);
+                        				takeAmount3 = Math.Max(1, currentNum3 - currentNum2 - currentNum1) % 6;
+								if (takeAmount3 == 0)
+								{
+								takeAmount3 = 5;
+								}
+                        				Console.WriteLine("I will take from the third pile {0}.\n", takeAmount3);
 						}
 						else
 						{
 
 						}
-                	}
-                	else
-                	{
+                			}
+                			else
+                			{
 						if (currentNum1 != 0 && currentNum1 >= currentNum2 && currentNum1 >= currentNum3)
 						{
-                        	takeAmount1 = 1;
+                        				takeAmount1 = 1;
 							takeAmount2 = 0;
 							takeAmount3 = 0;
                         	Console.WriteLine("I will take {0}.\n", takeAmount1);
@@ -244,7 +244,7 @@ namespace MultiPileNIM_CSharp
 						else if (currentNum2 != 0 && currentNum2 >= currentNum1 && currentNum2 >= currentNum3)
 						{
 							takeAmount1 = 0;
-                        	takeAmount2 = 1;
+                        				takeAmount2 = 1;
 							takeAmount3 = 0;
                         	Console.WriteLine("I will take {0}.\n", takeAmount2);
 						}
@@ -252,11 +252,11 @@ namespace MultiPileNIM_CSharp
 						{
 							takeAmount1 = 0;
 							takeAmount2 = 0;
-                     		takeAmount3 = 1;
+                     					takeAmount3 = 1;
                         	Console.WriteLine("I will take {0}.\n", takeAmount3);
 						}
-                	}
-                currentNum1 -= takeAmount1;
+                			}
+                		currentNum1 -= takeAmount1;
 				currentNum2 -= takeAmount2;
 				currentNum3 -= takeAmount3;
 
