@@ -19,18 +19,18 @@ namespace MultiPileNIM_CSharp
 
 		int pile12 = currentNum1 + currentNum2;
 
-    	int takeAmount1 = 0;
+    		int takeAmount1 = 0;
 		int takeAmount2 = 0;
 		int takeAmount3 = 0;
 
-        int maxTake1;
+        	int maxTake1;
 		int maxTake2;
 		int maxTake3;
 
-        int whoseTurn = 1;
-        bool gameIsOver;
-        bool gameLoop = true;
-        bool validInput;
+        	int whoseTurn = 1;
+        	bool gameIsOver;
+        	bool gameLoop = true;
+        	bool validInput;
 
 
         	// Main Game Loop
