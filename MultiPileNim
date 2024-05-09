@@ -263,6 +263,14 @@ namespace MultiPileNIM_CSharp
                 	if (currentNum1 == 0 && currentNum2 == 0 && currentNum3 == 0)
 					{
                     	gameIsOver = true;
+			if(whoseTurn == 1)
+			{
+			Console.WriteLine("I win, you loose.");
+			}
+			else
+			{
+			Console.WriteLine("I loose, you win.");
+			}
 					}
                 }
 				}
