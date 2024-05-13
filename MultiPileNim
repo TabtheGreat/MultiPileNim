@@ -36,10 +36,11 @@ namespace MultiPileNIM_CSharp
         	// Main Game Loop
         	if (gameLoop == true)
         	{
+        	   Console.WriteLine("If you try to take more than is allowed, then it will use modular arithmetic to become a number that is allowed.");
             	// Setup
             	maxTake1 = Math.Min(5, currentNum1);
-		        maxTake2 = Math.Min(5, currentNum2);
-		        maxTake3 = Math.Min(5, currentNum3);
+		maxTake2 = Math.Min(5, currentNum2);
+		maxTake3 = Math.Min(5, currentNum3);
             	gameIsOver = false;
 
             	Console.WriteLine("Multiple Pile Nim");
@@ -50,20 +51,19 @@ namespace MultiPileNIM_CSharp
                 // Player's Turn
                 validInput = false;
                 whoseTurn = 1;
-
                 	if (!validInput)
                 	{
                     //Get an integer
                     	while (true)
                     	{
-				Console.WriteLine("Remaining total from the first pile is: {0}", currentNum1);
-                Console.WriteLine("Remaining total from the second pile is: {0}", currentNum2);
-                Console.WriteLine("Remaining total from the third pile is: {0}", currentNum3);
-				Console.WriteLine("Which pile do you want to take from? 1-3");
-				int.TryParse(Console.ReadLine(), out pilenumber);
+			Console.WriteLine("Remaining total from the first pile is: {0}", currentNum1);
+                	Console.WriteLine("Remaining total from the second pile is: {0}", currentNum2);
+                	Console.WriteLine("Remaining total from the third pile is: {0}", currentNum3);
+			Console.WriteLine("Which pile do you want to take from? 1-3");
+			int.TryParse(Console.ReadLine(), out pilenumber);
 				if (pilenumber == 1)
 				{
-					Console.WriteLine("Your are taking from pile one, how many tokens do you take (1 - {0})?", maxTake1);
+					Console.WriteLine("You are taking from pile one. How many tokens do you take (1 - {0})?", maxTake1);
 					bool success1 = int.TryParse(Console.ReadLine(), out takeAmount1);
 					if (success1)
 					{
@@ -96,7 +96,7 @@ namespace MultiPileNIM_CSharp
 				}
 				else if (pilenumber == 2)
 				{
-					Console.WriteLine("Your are taking from pile two, how many tokens do you take (1 - {0})?", maxTake2);
+					Console.WriteLine("You are taking from pile two. How many tokens do you take (1 - {0})?", maxTake2);
 					bool success2 = int.TryParse(Console.ReadLine(), out takeAmount2);
 					if (success2)
 					{
@@ -129,7 +129,7 @@ namespace MultiPileNIM_CSharp
 				}
 				else if (pilenumber == 3)
 				{
-					Console.WriteLine("Your are taking from pile three, how many tokens do you take (1 - {0})?", maxTake3);
+					Console.WriteLine("You are taking from pile three. How many tokens do you take (1 - {0})?", maxTake3);
 					bool success3 = int.TryParse(Console.ReadLine(), out takeAmount3);
 					if (success3)
 					{
